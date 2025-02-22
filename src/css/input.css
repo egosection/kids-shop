@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+    --font-primary: "Montserrat", serif;
+    --color-primary: #4f9341;
+    --color-secondary: #ea67aa;
+    --color-tertiary: #5292d7;
+}
+
+.user-icons div {
+   @apply flex flex-col justify-center items-center cursor-pointer duration-150
+}
+
+.user-icons div:hover {
+    @apply opacity-90
+}
+
+.search-nav-icon {
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+}
+
+.profile-nav-icon {
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+}
+
+.cart-nav-icon {
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    100%{
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.rotate180 {
+    animation: rotate 200ms ease-out;
+}
+
+.scale {
+    animation: scale 200ms ease-out;
+}
