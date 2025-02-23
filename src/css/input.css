@@ -4,7 +4,7 @@
     --font-primary: "Montserrat", serif;
     --color-primary: #739d34;
     --color-secondary: #d05493;
-    --color-tertiary: #71668a;
+    --color-tertiary: #524a64;
 }
 
 .user-icons div {
@@ -16,15 +16,15 @@
 }
 
 .search-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-tertiary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#f75d9e] rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .profile-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-tertiary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#65a1ff] rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .cart-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-tertiary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#15bb85] rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .cloud-bg {
@@ -76,7 +76,7 @@
 }
 
 .nav-link:hover {
-    @apply bg-secondary
+    @apply bg-tertiary
 }
 
 .nav-link::before {
