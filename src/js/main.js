@@ -4,16 +4,31 @@ const hamburgerSvg = document.querySelector('#hamburger svg');
 const hamburgerCloseBtn = document.querySelector('#hamburger-close');
 const hamburgerCloseSvg = document.querySelector('#hamburger-close svg');
 const navMenu = document.querySelector('#menu-holder');
+const navLinks = document.querySelectorAll('#menu-holder ul li a');
 const overlay = document.querySelector('#overlay');
 
-const toggleMobileMenu = () => {
-    navMenu.classList.toggle('right-[0]');
-    hamburgerBtn.classList.toggle('hidden'); 
-    hamburgerCloseBtn.classList.toggle('hidden'); 
-    overlay.classList.toggle('hidden');
+const openMobileMenu = () => {
+    navMenu.classList.add('right-[0]');
+    hamburgerBtn.classList.add('hidden');
+    hamburgerCloseBtn.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    toggleOverlayAria();
 };
 
-//Add disabled attribute to html to prevend bug when we click to fast during transition
+const closeMobileMenu = () => {
+    navMenu.classList.remove('right-[0]');
+    hamburgerBtn.classList.remove('hidden');
+    hamburgerCloseBtn.classList.add('hidden');
+    overlay.classList.add('hidden');
+    toggleOverlayAria();
+};
+
+const toggleOverlayAria = () => {
+    let overlayAriaHidden = overlay.getAttribute("aria-hidden");
+    overlayAriaHidden === 'true' ? overlay.setAttribute('aria-hidden', 'false') : overlay.setAttribute('aria-hidden', 'true');
+};
+
+//Add disabled attribute to html to prevend bug when we click too fast during transition
 const disableButtons = () => {
     hamburgerBtn.disabled = true;
     hamburgerCloseBtn.disabled = true;
@@ -25,18 +40,28 @@ const disableButtons = () => {
 
 hamburgerBtn.addEventListener('click', () => {
     hamburgerCloseSvg.classList.add('rotate180');
-    toggleMobileMenu();
+    openMobileMenu();
     disableButtons();
 });
 
 hamburgerCloseBtn.addEventListener('click', () => {
     hamburgerSvg.classList.add('scale');
-    toggleMobileMenu();
+    closeMobileMenu();
     disableButtons();
 });
 
 overlay.addEventListener('click', () => {
     hamburgerSvg.classList.add('scale');
-    toggleMobileMenu();
+    closeMobileMenu();
     disableButtons();
 });
+
+navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        hamburgerSvg.classList.add('scale');
+        navMenu.classList.remove('right-[0]');
+        hamburgerBtn.classList.remove('hidden');
+        hamburgerCloseBtn.classList.add('hidden');
+        overlay.classList.add('hidden');
+    })
+})
