@@ -2,9 +2,9 @@
 
 @theme {
     --font-primary: "Montserrat", serif;
-    --color-primary: #4f9341;
-    --color-secondary: #ea67aa;
-    --color-tertiary: #5292d7;
+    --color-primary: #739d34;
+    --color-secondary: #d05493;
+    --color-tertiary: #71668a;
 }
 
 .user-icons div {
@@ -16,15 +16,24 @@
 }
 
 .search-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-tertiary rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .profile-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-tertiary rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .cart-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-tertiary rounded-full p-2 flex flex-col justify-center items-center text-white
+}
+
+.cloud-bg {
+    background-image: url('../images/cloud-bg-min.png');
+    background-repeat: no-repeat;
+    height: 40px;
+    background-color: transparent;
+    position: relative;
+    bottom: 5px;
 }
 
 @keyframes rotate{
@@ -55,4 +64,28 @@
 
 .scale {
     animation: scale 200ms ease-out;
+}
+
+.nav-link {
+    padding: 0.7rem 1rem;
+    border-radius: 2em;
+    color: #fff;
+    position: relative;
+    transition: 200ms ease-in-out;
+    @apply bg-primary
+}
+
+.nav-link:hover {
+    @apply bg-secondary
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 2em;
 }
