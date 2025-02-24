@@ -7,7 +7,11 @@
     --color-tertiary: #524a64;
 }
 
-.user-icons div {
+input:focus-visible {
+    outline: none;
+}
+
+.user-icons button {
    @apply flex flex-col justify-center items-center cursor-pointer duration-150
 }
 
@@ -76,7 +80,7 @@
 }
 
 .nav-link:hover {
-    @apply bg-tertiary
+    @apply bg-secondary
 }
 
 .nav-link::before {

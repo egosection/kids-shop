@@ -10,6 +10,7 @@
 <body class="font-primary bg-gray-200">
     <!-- Header -->
     <header class="w-full sticky top-0 z-50">
+
         <div class="top-bar bg-tertiary text-white">
             <div class="container mx-auto flex justify-between items-center px-4 py-2">
                 <a class="flex items-center gap-x-2" href="tel:0892362185">
@@ -26,6 +27,7 @@
                 </a>
             </div>
         </div>
+
         <nav class="bg-white lg:py-4">
             <div class="container mx-auto flex justify-between items-center pt-2 h-18 px-1.5 sm:px-4">
                 <div class="logo">
@@ -55,18 +57,18 @@
                 </div>
 
                 <div class="user-icons flex gap-x-1.5 sm:gap-x-4">
-                    <div>
+                    <button class="search-btn">
                         <svg class="search-nav-icon" viewBox="0 0 24 24" fill="#fff" width="24" height="24"><path d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617m-2.006-.742A6.98 6.98 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7 3.133 7 7 7a6.98 6.98 0 0 0 4.875-1.975z"/></svg>
                         <span class="hidden sm:inline-block text-xs text-[#4d4d4d] uppercase mt-1 font-medium">Search</span>
-                    </div>
-                    <div class="!hidden sm:!flex">
+                    </button>
+                    <button class="!hidden sm:!flex">
                         <svg class="profile-nav-icon" viewBox="0 0 24 24" fill="#fff" width="24" height="24"><path d="M20 22h-2v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v2H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5zm-8-9a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/></svg>
                         <span class="hidden sm:inline-block text-xs text-[#4d4d4d] uppercase mt-1 font-medium">Profile</span>
-                    </div>
-                    <div>
+                    </button>
+                    <button>
                         <div class="relative"><svg class="cart-nav-icon" viewBox="0 0 24 24" fill="#fff" width="24" height="24"><path d="M4.005 16V4h-2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8.005V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5.004a1 1 0 0 1-1-1m2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4m12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4"/></svg><span class="absolute -top-1.5 -right-1 bg-[#ff2b49] text-white rounded-full w-5 h-5 flex justify-center items-center p-2 text-xs">2</span></div>
                         <span class="hidden sm:inline-block text-xs text-[#4d4d4d] uppercase mt-1 font-medium">Cart</span>
-                    </div>  
+                    </button>  
                 </div>
 
                 <button class="w-10 flex flex-col justify-center items-center cursor-pointer select-none lg:hidden" aria-label="Open right mobile menu sidebar" aria-expanded="false" aria-controls="menu-holder" id="hamburger">
@@ -80,8 +82,21 @@
                 </button>
             </div>
         </nav>
+
         <div class="cloud-bg"></div>
+
+        <div class="search-wrap w-[90%] fixed duration-300 mx-auto right-0 left-0 top-[-100%] bg-amber-500 flex flex-col justify-center items-center p-6 rounded-xl sm:w-[60%] lg:w-[40%] xl:w-[30%]">
+            <h5 class="mb-4 text-white uppercase font-bold text-sm">Search Products</h5>
+            <form class="w-full relative">
+                <input class="bg-white rounded-xl p-2 w-full" type="search" name="search" id="search" placeholder="Type here...">
+                <button class="absolute right-0 top-0 bg-primary p-2 cursor-poiner rounded-r-xl duration-150 hover:bg-secondary" type="submit" name="submit" id="submit">
+                    <svg viewBox="0 0 24 24" fill="#fff" width="24" height="24"><path d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617m-2.006-.742A6.98 6.98 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7 3.133 7 7 7a6.98 6.98 0 0 0 4.875-1.975z"/></svg>
+                </button>
+            </form>
+        </div>
     </header>
+    <!-- End Header -->
+
 
     <h1 class="text-black mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. A deserunt ipsum quas saepe fuga excepturi voluptatem eius ducimus unde repellendus animi perferendis officia voluptas rem sapiente, nihil dolorem, ad maxime impedit, nostrum assumenda veniam recusandae provident laudantium! Numquam omnis temporibus magni, fugiat laborum quisquam rerum, quibusdam, ea recusandae deserunt corporis officiis sint eveniet dolorem. Facere, voluptatibus. Id nam sunt voluptatum, iusto sint, deleniti quasi earum voluptate nostrum amet atque! Non sed neque, velit at dolorem sunt officia quod reiciendis porro voluptatem nemo aliquam corporis esse voluptate, nostrum consequatur. Ipsum accusantium officia quo harum explicabo at voluptate nostrum quaerat modi fugit architecto dicta, asperiores alias dolores facilis eum corporis qui voluptatibus. Minima illum, rerum culpa cumque neque voluptate iure nisi excepturi voluptates sapiente tenetur debitis! Expedita velit quidem illo exercitationem reprehenderit quod excepturi harum sunt nesciunt aliquam eius doloribus dignissimos, dicta at, iusto dolores consectetur! Aut facere vero id sit in fugiat quibusdam, est repellat suscipit animi consequatur adipisci error consequuntur deleniti ad assumenda ex temporibus dolore sed excepturi cumque culpa exercitationem laborum! Iste inventore eius iusto voluptate ipsum animi natus soluta veniam velit debitis, similique odit nisi facilis qui totam ullam vitae nobis corporis reprehenderit nostrum. Soluta obcaecati nostrum ratione. Consequuntur fugit dignissimos voluptate. Omnis repellendus doloremque cupiditate culpa. Incidunt odio ratione, eum quam, unde dolores rerum amet a voluptate nesciunt distinctio debitis voluptas ipsa. Labore repudiandae quae, neque nesciunt sit commodi! Veniam esse atque odit magni officia natus vitae repellat necessitatibus magnam! Molestias vel distinctio libero fuga? <div class="text-amber-700" id="test">44444</div> Itaque fugit voluptas autem, ut sint illum voluptatibus unde totam optio aut? Eveniet itaque veniam molestias facilis, ratione repellendus saepe dicta quas, nisi natus iusto id nostrum reiciendis quaerat expedita perferendis laudantium blanditiis optio atque porro. Aliquam eligendi saepe iusto in, deleniti nulla ut perspiciatis soluta ipsum et nesciunt praesentium sapiente alias aut reprehenderit odit ab aspernatur, illo minima magni? Error voluptatem possimus facere magni, modi voluptates? Quae dolore explicabo corporis? Accusantium sunt inventore omnis similique maiores cupiditate nostrum, neque eaque! Eaque quo inventore, assumenda soluta nam, eos perspiciatis sequi et ullam ipsa culpa doloribus. Assumenda provident quisquam corporis! Obcaecati, esse! Quo beatae quisquam quasi, ducimus voluptatum voluptatibus! Distinctio unde, temporibus, ab sed rerum explicabo possimus vitae laborum, sapiente magnam soluta sequi atque voluptatum ipsam libero veniam ullam similique quisquam cum doloremque incidunt amet inventore! Labore repellat necessitatibus et voluptas delectus voluptates, unde odio expedita rem eaque laboriosam. Qui, odit nesciunt expedita, incidunt debitis nisi harum maiores neque et possimus libero mollitia beatae ad facere officia cupiditate reprehenderit maxime. Corporis ab quam sed, porro ea doloremque error voluptates odit fugiat aspernatur numquam consequatur! Harum exercitationem ullam quis, amet dolorem quae itaque laborum magni et numquam aliquam nostrum voluptates perferendis aliquid quisquam inventore saepe optio distinctio eaque deleniti enim totam! Doloremque, similique aut amet aperiam dolor repellat iste, libero qui odio, earum laudantium? Error at architecto corrupti consequuntur illo adipisci amet ipsa similique, dolorum sapiente labore repellat sint impedit aspernatur minima, odit optio molestias. Culpa doloribus et, blanditiis autem accusamus soluta veritatis perspiciatis inventore unde officia cumque eum debitis quo optio ut saepe reiciendis eos molestiae facilis atque suscipit illum labore at. Id debitis qui sapiente? Rerum nulla, inventore illum nobis sapiente qui omnis totam molestias, officiis iusto delectus alias tempora facilis hic suscipit perspiciatis saepe eveniet voluptates!</h1>
     <h2 class="text-black mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. A deserunt ipsum quas saepe fuga excepturi voluptatem eius ducimus unde repellendus animi perferendis officia voluptas rem sapiente, nihil dolorem, ad maxime impedit, nostrum assumenda veniam recusandae provident laudantium! Numquam omnis temporibus magni, fugiat laborum quisquam rerum, quibusdam, ea recusandae deserunt corporis officiis sint eveniet dolorem. Facere, voluptatibus. Id nam sunt voluptatum, iusto sint, deleniti quasi earum voluptate nostrum amet atque! Non sed neque, velit at dolorem sunt officia quod reiciendis porro voluptatem nemo aliquam corporis esse voluptate, nostrum consequatur. Ipsum accusantium officia quo harum explicabo at voluptate nostrum quaerat modi fugit architecto dicta, asperiores alias dolores facilis eum corporis qui voluptatibus. Minima illum, rerum culpa cumque neque voluptate iure nisi excepturi voluptates sapiente tenetur debitis! Expedita velit quidem illo exercitationem reprehenderit quod excepturi harum sunt nesciunt aliquam eius doloribus dignissimos, dicta at, iusto dolores consectetur! Aut facere vero id sit in fugiat quibusdam, est repellat suscipit animi consequatur adipisci error consequuntur deleniti ad assumenda ex temporibus dolore sed excepturi cumque culpa exercitationem laborum! Iste inventore eius iusto voluptate ipsum animi natus soluta veniam velit debitis, similique odit nisi facilis qui totam ullam vitae nobis corporis reprehenderit nostrum. Soluta obcaecati nostrum ratione. Consequuntur fugit dignissimos voluptate. Omnis repellendus doloremque cupiditate culpa. Incidunt odio ratione, eum quam, unde dolores rerum amet a voluptate nesciunt distinctio debitis voluptas ipsa. Labore repudiandae quae, neque nesciunt sit commodi! Veniam esse atque odit magni officia natus vitae repellat necessitatibus magnam! Molestias vel distinctio libero fuga? <div class="text-amber-700" id="test">44444</div> Itaque fugit voluptas autem, ut sint illum voluptatibus unde totam optio aut? Eveniet itaque veniam molestias facilis, ratione repellendus saepe dicta quas, nisi natus iusto id nostrum reiciendis quaerat expedita perferendis laudantium blanditiis optio atque porro. Aliquam eligendi saepe iusto in, deleniti nulla ut perspiciatis soluta ipsum et nesciunt praesentium sapiente alias aut reprehenderit odit ab aspernatur, illo minima magni? Error voluptatem possimus facere magni, modi voluptates? Quae dolore explicabo corporis? Accusantium sunt inventore omnis similique maiores cupiditate nostrum, neque eaque! Eaque quo inventore, assumenda soluta nam, eos perspiciatis sequi et ullam ipsa culpa doloribus. Assumenda provident quisquam corporis! Obcaecati, esse! Quo beatae quisquam quasi, ducimus voluptatum voluptatibus! Distinctio unde, temporibus, ab sed rerum explicabo possimus vitae laborum, sapiente magnam soluta sequi atque voluptatum ipsam libero veniam ullam similique quisquam cum doloremque incidunt amet inventore! Labore repellat necessitatibus et voluptas delectus voluptates, unde odio expedita rem eaque laboriosam. Qui, odit nesciunt expedita, incidunt debitis nisi harum maiores neque et possimus libero mollitia beatae ad facere officia cupiditate reprehenderit maxime. Corporis ab quam sed, porro ea doloremque error voluptates odit fugiat aspernatur numquam consequatur! Harum exercitationem ullam quis, amet dolorem quae itaque laborum magni et numquam aliquam nostrum voluptates perferendis aliquid quisquam inventore saepe optio distinctio eaque deleniti enim totam! Doloremque, similique aut amet aperiam dolor repellat iste, libero qui odio, earum laudantium? Error at architecto corrupti consequuntur illo adipisci amet ipsa similique, dolorum sapiente labore repellat sint impedit aspernatur minima, odit optio molestias. Culpa doloribus et, blanditiis autem accusamus soluta veritatis perspiciatis inventore unde officia cumque eum debitis quo optio ut saepe reiciendis eos molestiae facilis atque suscipit illum labore at. Id debitis qui sapiente? Rerum nulla, inventore illum nobis sapiente qui omnis totam molestias, officiis iusto delectus alias tempora facilis hic suscipit perspiciatis saepe eveniet voluptates!</h2>
