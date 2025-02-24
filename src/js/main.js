@@ -9,32 +9,35 @@ const overlay = document.querySelector('#overlay');
 const searchBtn = document.querySelector('.search-btn');
 const searchWrap = document.querySelector('.search-wrap');
 
+function toggleClass(element, className, add) {
+    element.classList[add ? 'add' : 'remove'](className);
+}
+
 function openMobileMenu() {
-    navMenu.classList.add('right-[0]');
-    hamburgerBtn.classList.add('hidden');
-    hamburgerCloseBtn.classList.remove('hidden');
+    toggleClass(navMenu, 'right-[0]', true);
+    toggleClass(hamburgerBtn, 'hidden', true);
+    toggleClass(hamburgerCloseBtn, 'hidden', false);
     openOverlay();
-};
+}
 
 function closeMobileMenu() {
-    navMenu.classList.remove('right-[0]');
-    hamburgerBtn.classList.remove('hidden');
-    hamburgerCloseBtn.classList.add('hidden');
+    toggleClass(navMenu, 'right-[0]', false);
+    toggleClass(hamburgerBtn, 'hidden', false);
+    toggleClass(hamburgerCloseBtn, 'hidden', true);
     closeOverlay();
-    hamburgerSvg.classList.add('scale');
-};
+    toggleClass(hamburgerSvg, 'scale', true);
+}
 
 function openOverlay() {
     overlay.setAttribute('aria-hidden', 'false');
-    overlay.classList.remove('hidden');
+    toggleClass(overlay, 'hidden', false);
 }
 
 function closeOverlay() {
     overlay.setAttribute('aria-hidden', 'true');
-    overlay.classList.add('hidden');
+    toggleClass(overlay, 'hidden', true);
 }
 
-//Add disabled attribute to html to prevend bug when we click too fast during transition
 function disableButtons() {
     hamburgerBtn.disabled = true;
     hamburgerCloseBtn.disabled = true;
@@ -42,34 +45,33 @@ function disableButtons() {
         hamburgerBtn.disabled = false;
         hamburgerCloseBtn.disabled = false;
     }, 100);
-};
+}
 
 function disableSearchButtons() {
-    searchBtn.classList.add('cursor-none');
+    toggleClass(searchBtn, 'cursor-none', true);
     setTimeout(() => {
-        searchBtn.classList.add('cursor-pointer');
+        toggleClass(searchBtn, 'cursor-pointer', true);
     }, 200);
-};
+}
 
 function openSearch() {
-    searchWrap.classList.remove('top-[-100%]');
-    searchWrap.classList.add('top-[20%]');
+    toggleClass(searchWrap, 'top-[-100%]', false);
+    toggleClass(searchWrap, 'top-[20%]', true);
 }
 
 function closeSearch() {
-    searchWrap.classList.remove('top-[20%]');
-    searchWrap.classList.add('top-[-100%]');
+    toggleClass(searchWrap, 'top-[20%]', false);
+    toggleClass(searchWrap, 'top-[-100%]', true);
 }
 
 function toggleSearch() {
     closeMobileMenu();
-    searchWrap.classList.toggle('top-[20%]'); 
+    searchWrap.classList.toggle('top-[20%]');
 }
-
 
 hamburgerBtn.addEventListener('click', () => {
     closeSearch();
-    hamburgerCloseSvg.classList.add('rotate180');
+    toggleClass(hamburgerCloseSvg, 'rotate180', true);
     openMobileMenu();
     disableButtons();
 });
@@ -86,21 +88,16 @@ overlay.addEventListener('click', () => {
 
 navLinks.forEach((link) => {
     link.addEventListener('click', () => {
-        hamburgerSvg.classList.add('scale');
-        navMenu.classList.remove('right-[0]');
-        hamburgerBtn.classList.remove('hidden');
-        hamburgerCloseBtn.classList.add('hidden');
-        overlay.classList.add('hidden');
-    })
+        toggleClass(hamburgerSvg, 'scale', true);
+        closeMobileMenu();
+    });
 });
 
 searchBtn.addEventListener('click', () => {
-    if(searchWrap.classList.contains('top-[-100%]')) {
-        searchWrap.classList.remove('top-[-100%]');
-        searchWrap.classList.add('top-[20%]');
-        closeMobileMenu(); 
+    if (searchWrap.classList.contains('top-[-100%]')) {
+        openSearch();
+        closeMobileMenu();
     } else {
-        searchWrap.classList.remove('top-[20%]');
-        searchWrap.classList.add('top-[-100%]');
-    } 
+        closeSearch();
+    }
 });
