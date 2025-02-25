@@ -2,9 +2,10 @@
 
 @theme {
     --font-primary: "Montserrat", serif;
-    --color-primary: #739d34;
-    --color-secondary: #d05493;
+    --color-primary: #4f8103;
+    --color-secondary: #fe9a00;
     --color-tertiary: #524a64;
+    --color-bgmenu: #f1f0f5;
 }
 
 input:focus-visible {
@@ -15,29 +16,34 @@ input:focus-visible {
    @apply flex flex-col justify-center items-center cursor-pointer duration-150
 }
 
-.user-icons div:hover {
-    @apply opacity-90
+.user-icons button:hover {
+    @apply opacity-80
 }
 
 .search-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#f75d9e] rounded-full p-2 flex flex-col justify-center items-center text-white
-}
-
-.profile-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#65a1ff] rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#fe9a00] rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .cart-nav-icon {
     @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#15bb85] rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
+.top-sticky {
+    transform: scale(0);
+    margin-top: -42px;
+}
+
 .cloud-bg {
-    background-image: url('../images/cloud-bg-min.png');
-    background-repeat: no-repeat;
     height: 40px;
+    width: 100%;
     background-color: transparent;
-    position: relative;
-    bottom: 5px;
+    top: 5px;
+}
+
+.search-wrap {
+    background-image: url('../images/steps.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @keyframes rotate{
@@ -70,7 +76,7 @@ input:focus-visible {
     animation: scale 200ms ease-out;
 }
 
-.nav-link {
+.btn {
     padding: 0.7rem 1rem;
     border-radius: 2em;
     color: #fff;
@@ -79,11 +85,11 @@ input:focus-visible {
     @apply bg-primary
 }
 
-.nav-link:hover {
+.btn:hover {
     @apply bg-secondary
 }
 
-.nav-link::before {
+.btn::before {
     content: "";
     position: absolute;
     top: 4px;

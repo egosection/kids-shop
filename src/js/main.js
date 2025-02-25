@@ -8,6 +8,8 @@ const navLinks = document.querySelectorAll('#menu-holder ul li a');
 const overlay = document.querySelector('#overlay');
 const searchBtn = document.querySelector('.search-btn');
 const searchWrap = document.querySelector('.search-wrap');
+const cartBtn = document.querySelector('.cart-btn');
+const cartWrap = document.querySelector('.cart-wrap');
 
 function toggleClass(element, className, add) {
     element.classList[add ? 'add' : 'remove'](className);
@@ -18,6 +20,8 @@ function openMobileMenu() {
     toggleClass(hamburgerBtn, 'hidden', true);
     toggleClass(hamburgerCloseBtn, 'hidden', false);
     openOverlay();
+    closeCart();
+    closeSearch();
 }
 
 function closeMobileMenu() {
@@ -26,6 +30,19 @@ function closeMobileMenu() {
     toggleClass(hamburgerCloseBtn, 'hidden', true);
     closeOverlay();
     toggleClass(hamburgerSvg, 'scale', true);
+}
+
+function openCart() {
+    toggleClass(cartWrap, 'left-[-100%]', false);
+    toggleClass(cartWrap, 'left-[0]', true);
+    closeOverlay();
+    closeMobileMenu();
+    closeSearch();
+}
+
+function closeCart() {
+    toggleClass(cartWrap, 'left-[0]', false);
+    toggleClass(cartWrap, 'left-[-100%]', true);
 }
 
 function openOverlay() {
@@ -57,6 +74,9 @@ function disableSearchButtons() {
 function openSearch() {
     toggleClass(searchWrap, 'top-[-100%]', false);
     toggleClass(searchWrap, 'top-[20%]', true);
+    closeOverlay();
+    closeMobileMenu();
+    closeCart();
 }
 
 function closeSearch() {
@@ -67,6 +87,17 @@ function closeSearch() {
 function toggleSearch() {
     closeMobileMenu();
     searchWrap.classList.toggle('top-[20%]');
+}
+
+function hideTopBar() {
+    const topBar = document.querySelector('.top-bar');
+    if (topBar) {
+        if (document.documentElement.scrollTop < 1) {
+            topBar.classList.remove("top-sticky");
+        } else {
+            topBar.classList.add("top-sticky");
+        }
+    }
 }
 
 hamburgerBtn.addEventListener('click', () => {
@@ -96,8 +127,27 @@ navLinks.forEach((link) => {
 searchBtn.addEventListener('click', () => {
     if (searchWrap.classList.contains('top-[-100%]')) {
         openSearch();
-        closeMobileMenu();
     } else {
         closeSearch();
     }
 });
+
+document.addEventListener('click', (event) => {
+    if (!searchWrap.contains(event.target) && !searchBtn.contains(event.target)) {
+        closeSearch();
+    }
+    if (!cartWrap.contains(event.target) && !cartBtn.contains(event.target)) {
+        closeCart();
+    }
+});
+
+cartBtn.addEventListener('click', () => {
+    if (cartWrap.classList.contains('left-[-100%]')) {
+        openCart();
+        closeMobileMenu();
+    } else {
+        closeCart();
+    }
+});
+
+window.addEventListener("scroll", hideTopBar);
