@@ -46,6 +46,11 @@ input:focus-visible {
     background-position: center;
 }
 
+.cart-wrap {
+    background: rgb(247,234,255);
+    background: linear-gradient(180deg, rgba(247,234,255,1) 0%, rgba(255,255,255,1) 100%); 
+}
+
 @keyframes rotate{
     0%{
         transform: rotate(0deg);
@@ -82,6 +87,7 @@ input:focus-visible {
     color: #fff;
     position: relative;
     transition: 200ms ease-in-out;
+    cursor: pointer;
     @apply bg-primary
 }
 
@@ -98,4 +104,18 @@ input:focus-visible {
     right: 4px;
     border: 2px dashed rgba(255, 255, 255, 0.3);
     border-radius: 2em;
+}
+
+.hero {
+    margin-top: -40px;
+    height: 600px;
+    background-size: cover;
+}
+
+.clouds {
+    background-image: url('../images/cldt.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
 }
