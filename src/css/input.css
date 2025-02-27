@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
+@font-face {  font-family: Sigmar;  font-style: normal;  font-weight: 400; src: url("../fonts/Sigmar-Regular.woff2") format("woff2");}
+
 @theme {
     --font-primary: "Montserrat", serif;
+    --font-secondary: "Sigmar", sans-serif;
     --color-primary: #4f8103;
     --color-secondary: #fe9a00;
     --color-tertiary: #524a64;
@@ -46,9 +49,16 @@ input:focus-visible {
     background-position: center;
 }
 
-.cart-wrap {
+.cart-wrap, #menu-holder {
     background: rgb(247,234,255);
     background: linear-gradient(180deg, rgba(247,234,255,1) 0%, rgba(255,255,255,1) 100%); 
+}
+
+
+@media (width >= 40rem) {
+    #menu-holder{
+      background: transparent;
+    }
 }
 
 @keyframes rotate{
@@ -103,6 +113,26 @@ input:focus-visible {
     left: 4px;
     right: 4px;
     border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 2em;
+}
+
+.btn2 {
+    padding: 0.7rem 1rem;
+    border-radius: 2em;
+    color: #fff;
+    position: relative;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.btn2::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border: 2px dashed rgba(255, 255, 255);
     border-radius: 2em;
 }
 

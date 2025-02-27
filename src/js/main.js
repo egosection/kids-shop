@@ -93,9 +93,9 @@ function hideTopBar() {
     const topBar = document.querySelector('.top-bar');
     if (topBar) {
         if (document.documentElement.scrollTop < 1) {
-            topBar.classList.remove("top-sticky");
+            toggleClass(topBar, 'top-sticky', false);
         } else {
-            topBar.classList.add("top-sticky");
+            toggleClass(topBar, 'top-sticky', true);
         }
     }
 }
