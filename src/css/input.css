@@ -5,7 +5,7 @@
 @theme {
     --font-primary: "Montserrat", serif;
     --font-secondary: "Sigmar", sans-serif;
-    --color-primary: #4f8103;
+    --color-primary: #00865a;
     --color-secondary: #fe9a00;
     --color-tertiary: #524a64;
     --color-bgmenu: #f1f0f5;
@@ -24,11 +24,11 @@ input:focus-visible {
 }
 
 .search-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#fe9a00] rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-secondary rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
-.cart-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-[#15bb85] rounded-full p-2 flex flex-col justify-center items-center text-white
+.cart-nav-icon, .add-to-cart {
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
 }
 
 .top-sticky {
@@ -50,10 +50,16 @@ input:focus-visible {
 }
 
 .cart-wrap, #menu-holder {
-    background: rgb(247,234,255);
-    background: linear-gradient(180deg, rgba(247,234,255,1) 0%, rgba(255,255,255,1) 100%); 
+    background: rgb(82,74,100);
+    background: linear-gradient(180deg, rgba(82,74,100,1) 36%, rgba(117,106,140,1) 100%); 
 }
 
+.hero {
+    margin-top: -40px;
+    background-size: cover;
+    background: rgb(82,74,100);
+    background: linear-gradient(180deg, rgba(82,74,100,1) 36%, rgba(117,106,140,1) 100%); 
+}
 
 @media (width >= 40rem) {
     #menu-holder{
@@ -136,16 +142,55 @@ input:focus-visible {
     border-radius: 2em;
 }
 
-.hero {
-    margin-top: -40px;
-    height: 600px;
-    background-size: cover;
+.heading::first-letter {
+    @apply text-4xl
+
 }
 
-.clouds {
-    background-image: url('../images/cldt.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 600px;
+.heading::after {
+    content: ' ';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    height: 40px;
     width: 100%;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    background: url('../images/heading-bottom4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.shape-divider-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(110% + 1.3px);
+    height: 76px;
+}
+
+.shape-divider-bottom .shape-fill {
+    fill: #FFFFFF;
+}
+
+.product-desc::before {
+    content: '';
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    height: 40px;
+    width: 100%;
+    transform: translateX(-50%);
+    background: url('../images/dvdr.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }

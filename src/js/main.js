@@ -92,7 +92,7 @@ function toggleSearch() {
 function hideTopBar() {
     const topBar = document.querySelector('.top-bar');
     if (topBar) {
-        if (document.documentElement.scrollTop < 1) {
+        if (document.documentElement.scrollTop < 50) {
             toggleClass(topBar, 'top-sticky', false);
         } else {
             toggleClass(topBar, 'top-sticky', true);
