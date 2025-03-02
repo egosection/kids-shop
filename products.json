@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "title": "Bear Plush Toy",
+      "image": "./src/images/products/bear-toy.jpg",
+      "regularPrice": 24.99,
+      "discountedPrice": 8.99
+    },
+    {
+      "id": 2,
+      "title": "Montessori Toy",
+      "image": "./src/images/products/montessori-toys.jpg",
+      "regularPrice": 11.99,
+      "discountedPrice": null
+    },
+    {
+      "id": 3,
+      "title": "Dino Toy",
+      "image": "./src/images/products/dino-toy.jpg",
+      "regularPrice": 16.99,
+      "discountedPrice": null
+    },
+    {
+      "id": 4,
+      "title": "Cars Montessori",
+      "image": "./src/images/products/Cars-montessori.jpg",
+      "regularPrice": 9.99,
+      "discountedPrice": 7.99
+    },
+    {
+      "id": 5,
+      "title": "Animal Bag",
+      "image": "./src/images/products/Animal-bag.jpg",
+      "regularPrice": 8.99,
+      "discountedPrice": null
+    },
+    {
+      "id": 6,
+      "title": "Fishy Plush",
+      "image": "./src/images/products/Fishy-plush.jpg",
+      "regularPrice": 29.99,
+      "discountedPrice": 22.99
+    },
+    {
+      "id": 7,
+      "title": "Donkey Toy",
+      "image": "./src/images/products/Donkey-toy.jpg",
+      "regularPrice": 124.99,
+      "discountedPrice": null
+    },
+    {
+      "id": 8,
+      "title": "Happy Sun Flower",
+      "image": "./src/images/products/Happy-Sun-Flower.jpg",
+      "regularPrice": 31.99,
+      "discountedPrice": 26.99
+    },
+    {
+      "id": 9,
+      "title": "Random Montessori",
+      "image": "./src/images/products/Random-Montessori.jpg",
+      "regularPrice": 17.99,
+      "discountedPrice": null
+    },
+    {
+      "id": 10,
+      "title": "My Elephant Friend",
+      "image": "./src/images/products/My-Elephant-Friend.jpg",
+      "regularPrice": 55.99,
+      "discountedPrice": 48.99
+    }
+  ]

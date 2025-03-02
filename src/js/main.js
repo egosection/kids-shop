@@ -1,4 +1,4 @@
-/////////////////////////////////////// Mobile Navigation ////////////////////////////////////////////
+/////////////////////////////////////// HEADER ////////////////////////////////////////////
 const hamburgerBtn = document.querySelector('#hamburger');
 const hamburgerSvg = document.querySelector('#hamburger svg');
 const hamburgerCloseBtn = document.querySelector('#hamburger-close');
@@ -151,3 +151,65 @@ cartBtn.addEventListener('click', () => {
 });
 
 window.addEventListener("scroll", hideTopBar);
+
+
+/////////////////////////////////////// PRODUCTS ////////////////////////////////////////////
+
+async function getProducts() {
+    const response = await fetch('/products.json');
+    const data = await response.json();
+    showProducts(data);
+}
+
+function showProducts(arr) {
+    const productDiv = document.querySelector('#toys');
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i].discountedPrice === null) {
+            productDiv.innerHTML += `
+                <div class="product-box">
+                    <div class="product">
+                        <a href="#" title="${arr[i].title}">
+                            <img src="${arr[i].image}" alt="${arr[i].title}">    
+                        </a>
+                        <div class="product-desc">
+                            <a href="#" title="${arr[i].title}">
+                                <h3>${arr[i].title}</h3>
+                            </a>    
+                            <div class="price">$${arr[i].regularPrice}</div>
+                            <button class="add-cart" aria-label="Add to the cart">
+                                <svg class="add-to-cart" viewBox="0 0 24 24" fill="#fff" width="24" height="24"><path d="M4.005 16V4h-2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8.005V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5.004a1 1 0 0 1-1-1m2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4m12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        `    
+        } else {
+            productDiv.innerHTML += `
+                <div class="product-box">
+                    <div class="product">
+                        <span class="disc-badge">-${calculateDiscount(arr[i].regularPrice , arr[i].discountedPrice)}% Promo</span>
+                        <a href="#" title="${arr[i].title}">
+                            <img src="${arr[i].image}" alt="${arr[i].title}">    
+                        </a>
+                        <div class="product-desc">
+                            <a href="#" title="${arr[i].title}">
+                                <h3>${arr[i].title}</h3>
+                            </a>    
+                            <div class="price"><span>$${arr[i].regularPrice}</span>$${arr[i].discountedPrice}</div>
+                            <button class="add-cart" aria-label="Add to the cart">
+                                <svg class="add-to-cart" viewBox="0 0 24 24" fill="#fff" width="24" height="24"><path d="M4.005 16V4h-2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8.005V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5.004a1 1 0 0 1-1-1m2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4m12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        `
+        }
+    }
+}
+
+function calculateDiscount(regPrice , disPrice) {
+    const discount = ((regPrice - disPrice) / regPrice) * 100;
+    return discount.toFixed(0);
+}
+
+getProducts();

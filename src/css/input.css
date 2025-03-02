@@ -24,11 +24,15 @@ input:focus-visible {
 }
 
 .search-nav-icon {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-secondary rounded-full p-2 flex flex-col justify-center items-center text-white
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-secondary rounded-full p-2 flex flex-col justify-center items-center text-white 
 }
 
-.cart-nav-icon, .add-to-cart {
-    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white
+.cart-nav-icon {
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white 
+}
+
+.add-to-cart {
+    @apply w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full p-2 flex flex-col justify-center items-center text-white hover:bg-secondary
 }
 
 .top-sticky {
@@ -180,6 +184,38 @@ input:focus-visible {
 
 .shape-divider-bottom .shape-fill {
     fill: #FFFFFF;
+}
+
+.product-box {
+    @apply rounded-lg overflow-hidden hover:shadow-lg duration-50
+}
+
+.product {
+    @apply relative
+}
+
+.disc-badge {
+    @apply absolute text-xs left-2 top-2 bg-pink-600 py-1 px-2 rounded-lg uppercase text-white font-bold
+}
+
+.product-desc {
+    @apply text-white relative py-2 px-4 sm:py-4 flex flex-col justify-center items-center gap-1 bg-tertiary
+}
+
+.product-desc h3 {
+    @apply font-bold
+}
+
+.price {
+    @apply flex gap-2
+}
+
+.price span {
+    @apply line-through text-[#b7aecc] font-bold
+}
+
+.add-cart {
+    @apply flex justify-center items-center gap-1 cursor-pointer
 }
 
 .product-desc::before {
