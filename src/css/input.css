@@ -203,7 +203,7 @@ input:focus-visible {
 }
 
 .product-desc h3 {
-    @apply font-bold
+    @apply font-bold hover:text-secondary line-clamp-1
 }
 
 .price {
@@ -229,4 +229,9 @@ input:focus-visible {
     background: url('../images/dvdr.png');
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.border-btm {
+    border-bottom: 3px dashed #00865a;
+    margin-bottom: 0.6rem;
 }

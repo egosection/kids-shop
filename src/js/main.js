@@ -156,9 +156,13 @@ window.addEventListener("scroll", hideTopBar);
 /////////////////////////////////////// PRODUCTS ////////////////////////////////////////////
 
 async function getProducts() {
-    const response = await fetch('/products.json');
-    const data = await response.json();
-    showProducts(data);
+    try {
+        const response = await fetch('/products.json');
+        const data = await response.json();
+        showProducts(data);
+    } catch(err) {
+        console.error(err);
+    }
 }
 
 function showProducts(arr) {

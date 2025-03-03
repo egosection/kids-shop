@@ -587,6 +587,9 @@
   .end-2 {
     inset-inline-end: calc(var(--spacing) * 2);
   }
+  .-top-1 {
+    top: calc(var(--spacing) * -1);
+  }
   .-top-1\.5 {
     top: calc(var(--spacing) * -1.5);
   }
@@ -860,6 +863,9 @@
   .h-\[288px\] {
     height: 288px;
   }
+  .h-\[600px\] {
+    height: 600px;
+  }
   .h-full {
     height: 100%;
   }
@@ -874,6 +880,9 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1331,6 +1340,9 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .gap-x-1 {
+    column-gap: calc(var(--spacing) * 1);
+  }
   .gap-x-1\.5 {
     column-gap: calc(var(--spacing) * 1.5);
   }
@@ -1579,6 +1591,9 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
+  .bg-amber-300 {
+    background-color: var(--color-amber-300);
+  }
   .bg-amber-500 {
     background-color: var(--color-amber-500);
   }
@@ -1614,6 +1629,12 @@
   .bg-radial {
     --tw-gradient-position: in oklab;
     background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+  .bg-\[url\(\.\.\/images\/about-bg\.jpg\)\] {
+    background-image: url(../images/about-bg.jpg);
+  }
+  .bg-\[url\(\.\.\/images\/aboutusbg\.jpg\)\] {
+    background-image: url(../images/aboutusbg.jpg);
   }
   .bg-\[url\(\.\.\/images\/category-boys\.jpg\)\] {
     background-image: url(../images/category-boys.jpg);
@@ -1784,6 +1805,9 @@
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
@@ -1793,6 +1817,9 @@
   .\!px-\[1\.1rem\] {
     padding-inline: 1.1rem !important;
   }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
   .px-1\.5 {
     padding-inline: calc(var(--spacing) * 1.5);
   }
@@ -1801,6 +1828,9 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
+  }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
   }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
@@ -1894,6 +1924,10 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .leading-7 {
+    --tw-leading: calc(var(--spacing) * 7);
+    line-height: calc(var(--spacing) * 7);
   }
   .leading-none {
     --tw-leading: 1;
@@ -2544,6 +2578,11 @@
       width: 50%;
     }
   }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2907,8 +2946,17 @@ input:focus-visible {
   }
 }
 .product-desc h3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-secondary);
+    }
+  }
 }
 .price {
   display: flex;
@@ -2938,6 +2986,10 @@ input:focus-visible {
   background: url('../images/dvdr.png');
   background-repeat: no-repeat;
   background-position: center;
+}
+.border-btm {
+  border-bottom: 3px dashed #00865a;
+  margin-bottom: 0.6rem;
 }
 @keyframes spin {
   to {
