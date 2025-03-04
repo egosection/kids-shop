@@ -176,7 +176,7 @@ function showProducts(arr) {
                 <div class="product">
                     ${discountBadge}
                     <a href="#" title="${product.title}">
-                        <img src="${product.image}" alt="${product.title}">
+                        <img src="${product.image}" height="472" width="360" alt="${product.title}">
                     </a>
                     <div class="product-desc">
                         <a href="#" title="${product.title}">
@@ -202,3 +202,19 @@ function calculateDiscount(regPrice , disPrice) {
 }
 
 getProducts();
+
+
+/////////////////////////////////////// FAQ ////////////////////////////////////////////
+document.querySelectorAll('.accordion').forEach(acc => {
+    acc.addEventListener('click', function() {
+        document.querySelectorAll('.accordion').forEach(otherAcc => {
+            if (otherAcc !== acc) {
+                otherAcc.classList.remove('active');
+                otherAcc.nextElementSibling.style.maxHeight = null;
+            }
+        });
+        this.classList.toggle('active');
+        const panel = this.nextElementSibling;
+        panel.style.maxHeight = panel.style.maxHeight ? null : `${panel.scrollHeight}px`;
+    });
+});

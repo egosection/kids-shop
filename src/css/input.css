@@ -235,3 +235,28 @@ input:focus-visible {
     border-bottom: 3px dashed #00865a;
     margin-bottom: 0.6rem;
 }
+
+.accordion {
+    background-color: #00865a;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.4s;
+    margin: 0.3rem 0;
+  }
+  
+  .active, .accordion:hover {
+    @apply bg-secondary
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: #524a64;
+    color:#fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }

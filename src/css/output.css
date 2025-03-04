@@ -587,9 +587,6 @@
   .end-2 {
     inset-inline-end: calc(var(--spacing) * 2);
   }
-  .-top-1 {
-    top: calc(var(--spacing) * -1);
-  }
   .-top-1\.5 {
     top: calc(var(--spacing) * -1.5);
   }
@@ -755,6 +752,9 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
@@ -863,9 +863,6 @@
   .h-\[288px\] {
     height: 288px;
   }
-  .h-\[600px\] {
-    height: 600px;
-  }
   .h-full {
     height: 100%;
   }
@@ -880,9 +877,6 @@
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1340,9 +1334,6 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
-  .gap-x-1 {
-    column-gap: calc(var(--spacing) * 1);
-  }
   .gap-x-1\.5 {
     column-gap: calc(var(--spacing) * 1.5);
   }
@@ -1582,9 +1573,6 @@
   .bg-\[\#F1E8D7\] {
     background-color: #F1E8D7;
   }
-  .bg-\[\#FBF4E4\] {
-    background-color: #FBF4E4;
-  }
   .bg-\[\#ff2b49\] {
     background-color: #ff2b49;
   }
@@ -1636,9 +1624,6 @@
   .bg-\[url\(\.\.\/images\/about-bg\.jpg\)\] {
     background-image: url(../images/about-bg.jpg);
   }
-  .bg-\[url\(\.\.\/images\/aboutusbg\.jpg\)\] {
-    background-image: url(../images/aboutusbg.jpg);
-  }
   .bg-\[url\(\.\.\/images\/category-boys\.jpg\)\] {
     background-image: url(../images/category-boys.jpg);
   }
@@ -1647,6 +1632,12 @@
   }
   .bg-\[url\(\.\.\/images\/category-kids-toys\.jpg\)\] {
     background-image: url(../images/category-kids-toys.jpg);
+  }
+  .bg-\[url\(\.\.\/images\/whybg-flip\.jpg\)\] {
+    background-image: url(../images/whybg-flip.jpg);
+  }
+  .bg-\[url\(\.\.\/images\/whybg\.jpg\)\] {
+    background-image: url(../images/whybg.jpg);
   }
   .bg-none {
     background-image: none;
@@ -1820,9 +1811,6 @@
   .\!px-\[1\.1rem\] {
     padding-inline: 1.1rem !important;
   }
-  .px-1 {
-    padding-inline: calc(var(--spacing) * 1);
-  }
   .px-1\.5 {
     padding-inline: calc(var(--spacing) * 1.5);
   }
@@ -1835,9 +1823,6 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
-  .py-20 {
-    padding-block: calc(var(--spacing) * 20);
-  }
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
   }
@@ -1847,6 +1832,9 @@
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
+  }
   .pt-36 {
     padding-top: calc(var(--spacing) * 36);
   }
@@ -1855,6 +1843,9 @@
   }
   .pb-12 {
     padding-bottom: calc(var(--spacing) * 12);
+  }
+  .pb-20 {
+    padding-bottom: calc(var(--spacing) * 20);
   }
   .text-center {
     text-align: center;
@@ -1912,6 +1903,10 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -1928,13 +1923,13 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
-  .leading-7 {
-    --tw-leading: calc(var(--spacing) * 7);
-    line-height: calc(var(--spacing) * 7);
-  }
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
+  }
+  .font-black {
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -2026,6 +2021,9 @@
   }
   .text-\[\#6e617b\] {
     color: #6e617b;
+  }
+  .text-\[\#d5d5d5\] {
+    color: #d5d5d5;
   }
   .text-\[\#eee\] {
     color: #eee;
@@ -2997,6 +2995,28 @@ input:focus-visible {
 .border-btm {
   border-bottom: 3px dashed #00865a;
   margin-bottom: 0.6rem;
+}
+.accordion {
+  background-color: #00865a;
+  color: #fff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.4s;
+  margin: 0.3rem 0;
+}
+.active, .accordion:hover {
+  background-color: var(--color-secondary);
+}
+.panel {
+  padding: 0 18px;
+  background-color: #524a64;
+  color: #fff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 @keyframes spin {
   to {
