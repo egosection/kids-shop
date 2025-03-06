@@ -176,7 +176,7 @@ function showProducts(arr) {
                 <div class="product">
                     ${discountBadge}
                     <a href="#" title="${product.title}">
-                        <img src="${product.image}" height="472" width="360" alt="${product.title}">
+                        <img src="${product.image}" height="472" width="360" alt="${product.title}" loading="lazy">
                     </a>
                     <div class="product-desc">
                         <a href="#" title="${product.title}">
@@ -217,4 +217,37 @@ document.querySelectorAll('.accordion').forEach(acc => {
         const panel = this.nextElementSibling;
         panel.style.maxHeight = panel.style.maxHeight ? null : `${panel.scrollHeight}px`;
     });
+});
+
+
+/////////////////////////////////////// CONTACT US ////////////////////////////////////////////
+document.querySelector('.r-side form').addEventListener('submit', (e) => {  
+    const message = document.querySelector('.error-msg');
+    e.preventDefault();
+    const fullName = e.target.name.value.trim();
+    const phoneNumber = e.target.phone.value.trim();
+    const email = e.target.email.value.trim();
+    const text = e.target.msg.value.trim();
+
+    message.classList.remove('p-error', 'p-success');
+
+    if(!fullName || !phoneNumber || !email || !text) {
+        message.classList.add('p-error');
+        message.textContent = 'All fields are required!';
+        return;
+    }
+
+    if(fullName.length < 8 || phoneNumber.length < 8 || email.length < 8 || text.length < 8) {
+        message.classList.add('p-error');
+        message.textContent = 'Name, Phone, Email and Text fields must be at least 8 characters';
+        return;
+    }
+
+    message.classList.remove('p-error');
+    message.classList.add('p-success');
+    message.textContent = 'Successfully sent!';
+    e.target.name.value = '';
+    e.target.phone.value = '';
+    e.target.email.value = '';
+    e.target.msg.value = '';
 });
