@@ -11,6 +11,8 @@ const searchWrap = document.querySelector('.search-wrap');
 const cartBtn = document.querySelector('.cart-btn');
 const cartWrap = document.querySelector('.cart-wrap');
 const cartShopBtn = document.querySelector('.shopBtn');
+const productsArr = [];
+const searchItems = document.querySelectorAll('.s-item');
 
 function toggleClass(element, className, add) {
     element.classList[add ? 'add' : 'remove'](className);
@@ -162,7 +164,9 @@ async function getProducts() {
     try {
         const response = await fetch('/products.json');
         const data = await response.json();
+        productsArr.push(data); 
         showProducts(data);
+        showSearchItems(productsArr);  
     } catch(err) {
         console.error(err);
     }
@@ -175,7 +179,7 @@ function showProducts(arr) {
         const priceHTML = product.discountedPrice !== null ? `<div class="price"><span>$${product.regularPrice}</span>$${product.discountedPrice}</div>` : `<div class="price">$${product.regularPrice}</div>`;
         
         return `
-            <div class="product-box">
+            <div class="product-box" id="${product.id}">
                 <div class="product">
                     ${discountBadge}
                     <a href="#" title="${product.title}">
@@ -202,6 +206,49 @@ function showProducts(arr) {
 function calculateDiscount(regPrice , disPrice) {
     const discount = ((regPrice - disPrice) / regPrice) * 100;
     return discount.toFixed(0);
+}
+
+// Search products
+function showSearchItems(arr) {
+    const searchResultsDiv = document.querySelector('.search-items');
+    const searchForm = document.querySelector('.search-form');
+    let searchHTML = '';
+
+    arr[0].forEach(product => {
+        searchHTML += `
+        <a class="s-item flex items-center gap-4" href="${product.id}">
+            <img class="rounded-full w-[40px] h-[40px] object-cover my-1" src="${product.image}" width="40" height="40" alt="${product.title}">
+            <h6>${product.title}</h6>
+        </a>
+        `;
+    });
+
+    searchResultsDiv.innerHTML = searchHTML;
+
+    searchForm.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredProducts = arr[0].filter(product => product.title.toLowerCase().includes(searchTerm));
+        let filteredHTML = '';
+        filteredProducts.forEach(product => {
+            filteredHTML += `
+            <a class="s-item flex items-center gap-4 bg-[#ffca79] hover:bg-[#ffd87b] duration-200 rounded-lg my-1 px-2" href="#${product.id}" onclick="closeSearch()">
+                <img class="rounded-full w-[40px] h-[40px] object-cover my-1" src="${product.image}" width="40" height="40" alt="${product.title}">
+                <h6 class="text-[#885339] font-bold">${product.title}</h6>
+            </a>
+            `;
+        });
+        searchResultsDiv.innerHTML = filteredHTML;
+    });
+
+    searchResultsDiv.innerHTML = '';
+
+    document.querySelector('#submit').addEventListener('click', (e) => {
+        e.preventDefault();
+        if(searchResultsDiv.innerHTML === '') {
+            searchResultsDiv.textContent = 'Nothing found :('    
+        }
+        
+    });
 }
 
 getProducts();

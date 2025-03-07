@@ -101,7 +101,7 @@ input:focus-visible {
 .search-wrap {
     background-image: url('../images/steps.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     z-index: 111;
 }
 

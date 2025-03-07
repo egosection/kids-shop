@@ -752,8 +752,14 @@
       max-width: 96rem !important;
     }
   }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
   .mx-auto {
     margin-inline: auto;
+  }
+  .my-1 {
+    margin-block: calc(var(--spacing) * 1);
   }
   .my-2 {
     margin-block: calc(var(--spacing) * 2);
@@ -904,6 +910,9 @@
   }
   .w-30 {
     width: calc(var(--spacing) * 30);
+  }
+  .w-\[40px\] {
+    width: 40px;
   }
   .w-\[50\%\] {
     width: 50%;
@@ -1449,6 +1458,9 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .overscroll-y-auto {
+    overscroll-behavior-y: auto;
+  }
   .scroll-auto {
     scroll-behavior: auto;
   }
@@ -1599,6 +1611,9 @@
   }
   .bg-\[\#ff2b49\] {
     background-color: #ff2b49;
+  }
+  .bg-\[\#ffca79\] {
+    background-color: #ffca79;
   }
   .bg-\[color\:var\(--my-color\)\] {
     background-color: var(--my-color);
@@ -1847,6 +1862,9 @@
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
@@ -1959,17 +1977,9 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
-  .leading-6 {
-    --tw-leading: calc(var(--spacing) * 6);
-    line-height: calc(var(--spacing) * 6);
-  }
   .leading-7 {
     --tw-leading: calc(var(--spacing) * 7);
     line-height: calc(var(--spacing) * 7);
-  }
-  .leading-8 {
-    --tw-leading: calc(var(--spacing) * 8);
-    line-height: calc(var(--spacing) * 8);
   }
   .leading-none {
     --tw-leading: 1;
@@ -1986,10 +1996,6 @@
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
-  }
-  .font-semibold {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
   }
   .tracking-wide {
     --tw-tracking: var(--tracking-wide);
@@ -2077,14 +2083,14 @@
   .text-\[\#464646\] {
     color: #464646;
   }
+  .text-\[\#885339\] {
+    color: #885339;
+  }
   .text-\[\#eee\] {
     color: #eee;
   }
   .text-primary {
     color: var(--color-primary);
-  }
-  .text-tertiary {
-    color: var(--color-tertiary);
   }
   .text-white {
     color: var(--color-white);
@@ -2572,6 +2578,20 @@
       }
     }
   }
+  .hover\:bg-\[\#b8f4ab\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #b8f4ab;
+      }
+    }
+  }
+  .hover\:bg-\[\#ffd87b\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #ffd87b;
+      }
+    }
+  }
   .hover\:opacity-75 {
     &:hover {
       @media (hover: hover) {
@@ -2911,7 +2931,7 @@ input:focus-visible {
 .search-wrap {
   background-image: url('../images/steps.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   z-index: 111;
 }
 .cart-wrap, #menu-holder {
