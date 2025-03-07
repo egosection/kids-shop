@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Best Online Shop for Kids | KidsShop</title>
-    <meta name="description" content="The Best Online Shop for Kids | KidsShop" />
+    <link rel="icon" type="image/x-icon" href="./src/images/fav.ico">
+    <!-- Meta tags -->
+    <meta name="description" content="We are the best online shop for kids and toys in the world!" />
+    <meta name="keywords" content="Kids shop, Toy shop, Online toys" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="The Best Online Shop for Kids | KidsShop" />
+    <meta property="og:description" content="We are the best online shop for kids and toys in the world!" />
+    <meta property="og:url" content="https://kids-shop-demo.netlify.app" />
+    <meta property="og:image" content="https://kids-shop-demo.netlify.app/images/og-image.jpg" />
     <!-- Main CSS -->
     <link rel="stylesheet" href="./src/css/output.css">
 </head>
@@ -34,9 +42,9 @@
         <!-- Navigation -->
         <nav class="bg-white lg:py-4">
             <div class="container mx-auto flex justify-between items-center pt-2 h-18 px-1.5 sm:px-4">
-                <div class="logo">
+                <div class="logo w-[200px] lg:w-[260px]">
                     <a href="./index.html" title="The Best Online Shop for Kids | KidsShop" >
-                        <svg class="w-[160px] sm:w-full" width="220" height="55" viewBox="0 0 220 55"><defs><style>.cls-2{font-size:60px;fill:#4d4462;font-family:Jokerman}</style></defs><circle cx="103.031" cy="26.891" r="26.219" style="fill:#739d34"/><image x="83" y="7" width="40" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAF8klEQVRYhbzOsREAEBAAsDils4cxNL+PWQ2jfQPoZYKUzPRJRWBioKNhY+E8D1wAAAD//2IAOZAO2Pn////r/////+c/dmCO1Q3//zMAAAAA//9ioUPoTWRgYMgjoIYTqygDAwMAAAD//6KlA0GWrmVgYPAkQu0frKIMDAwAAAAA//9ioq6bUMAcIh0HAr+wijIwMAAAAAD//6KVA2MZGBiiSFD/G6soAwMDAAAA//+iRS7mYWBguMnAwCBFgp5dDAwMIQwMDJ9RRBkYGAAAAAD//6JFCHqR6DgQcGNgYFjHwMDAhiLKwMAAAAAA//+ihQP9ydTnwsDAsJ2BgQGRcRkYGAAAAAD//6K2A0GFsQ4F+p0YGBhq4TwGBgYAAAAA//+itgMFGBgYRCk0Ix5eLjIwMAAAAAD//6K2A1mxpSMSAagKhJjBwMAAAAAA//+itgNBRcI/ItXhAucYGBg+gSUZGBgAAAAA//+itgM/EOnAnwwMDGdwyIHSIMQDDAwMAAAAAP//orSqY2dgYBCG5rzvDAwMMui5EI++Omh01kDT7SkGBoYWBgaG03BVDAwMAAAAAP//IsYwkBpQ2gI5AAYsGRgYIqG5ToKBgQEUE6DaAJR2+Ikwk5GBgUGbgYGhh4GBYQO02fUeQxUDAwMAAAD//8LlQFBREQZtu3ExMDCEMzAw3IXKdTEwMJQS4QhCwBCqAFQPY6+LGRgYAAAAAP//wtYG6/7///8vpGbb1P///zNB5ZbhaM+RA04RbIf+/88AAAAA//9CF1iJZtOj////c0DlKqjoOBB4/f//f1G8Dvz/nwEAAAD//0Lm1GMxpAEqJ/H///+/VHYgCFjgdeD//wwAAAAA//+CFTOSDAwMZVhSwB4oDWpp0KLeVsYry8DAAAAAAP//glnqC80MyADU9LkKFbClgeNAQBWvLAMDAwAAAP//AjkQ1DSywCJ3Bynr61LfbWCghleWgYEBAAAA//8CORDUBdTEIgcLPUUGBgYF6rsNDPCby8DAAAAAAP//AjnQiIGBQR2L3BUoDSoTcfa6KASgNCiI0wwGBgYAAAAA//8COdAOi6KvDAwMe6FsUIlPKyDGwMAgj9NwBgYGAAAAAP//AtUkoP6ALDQtPoTWiXMZGBjO08GBIADKKBewyjAwMAAAAAD//4KVN6CaAlTWoZdDIPFzJJRrn/7///+BxLKwDmc5+P8/AwAAAP//gtXFoCbSCyzuB7VOsKVPZPCFgYFhAbQ/cZuBgeEvAwODErSPkczAwCBCQD9u8xkYGAAAAAD//wK5UuH///+R////d8Dig0ACvr/9//9/IzwhoPr///+zBMy4g1TXwzDILZH///+XAgAAAP//AnG2ICmORlMICn5c4O7////5iajw2f7//38RjzmX/v//z46kHuQwCPj/fxEAAAD//wIJJEIVwUAukmKl////z8RhsDsJo2I2OOryWf///5dFUpePJHfh////oQAAAAD//4JJCP////8EkuT8////CyFpBFXqoJbOD6g8KOOQOmwHshAEfv7//38FWkNB8P///3OR7Ac1xYT+///PAAAAAP//QjYA1KxaiKToyf///+OwpKmm////h5PhwFioXnU08XioXTAAcgMnWO7/fwYAAAAA///CZlDW////PyJp2P3///8gMhxECAf8//9/F5I9oCIqE0Xf//8MAAAAAP//wmWIBjQakAEooVf9//9fiwJHgfSCGr7omQaUfDQx1P//zwAAAAD//yI0ugUaUwaNjvqgiZ9lYGC4yMDAcI2BgeEeAwPDK2jzDFQGggBoCATUYwNVZaAyUYuBgUGfgYHBGM2crdAR2N1YbWdgYAAAAAD//yJ2+A3UiwON+TkT00QiAECFOchBSxkYGI7hVcvAwAAAAAD//yJ1fBDUqDVlYGCwZmBgMGNgYDCAtsZxDXeAemvPoCP5oDr+MDT0QY0RwoCBgQEAAAD//6JkABPUTgRFHYgGRSUfNGpBABTVoOELUNSDksANKE0aYGBgAAAAAP//AwCVlNqB1YEhQAAAAABJRU5ErkJggg=="/><text id="Shop" class="cls-2" transform="matrix(.606 0 0 .611 130.909 39.417)">Shop</text><text id="Kids" class="cls-2" transform="matrix(.606 0 0 .611 -1.818 39.417)">Kids</text></svg>
+                        <img src="./src/images/kidsshop-logo.png" alt="he Best Online Shop for Kids | KidsShop" width="200" height="50">
                     </a>
                 </div>
                 <!-- Main Ul -->
@@ -106,7 +114,7 @@
                     <span class="text-white text-lg">Your cart is empty</span>
                     <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff"><path d="M10.597 19.279a1.27 1.27 0 0 1-1.271 1.271 1.27 1.27 0 0 1-1.271-1.271 1.271 1.271 0 0 1 2.541 0m13.347 0a1.27 1.27 0 0 1-1.271 1.271 1.27 1.27 0 0 1-1.271-1.271 1.271 1.271 0 0 1 2.541 0"/><path d="M32 18.739a3.75 3.75 0 0 0-3.085-3.688v-.556C28.915 7.374 23.122 1.58 16 1.58S3.085 7.375 3.085 14.496v.556A3.75 3.75 0 0 0 0 18.739a3.75 3.75 0 0 0 3.131 3.696c.249 2.845 1.552 4.947 3.881 6.255 2.072 1.163 5.012 1.728 8.988 1.728s6.916-.565 8.988-1.728c2.329-1.308 3.632-3.409 3.881-6.255A3.75 3.75 0 0 0 32 18.739m-30.677 0c0-1.108.747-2.043 1.763-2.332v4.664a2.43 2.43 0 0 1-1.763-2.332m26.268 2.655c0 2.905-1.064 4.915-3.251 6.143-1.869 1.049-4.597 1.559-8.34 1.559s-6.472-.509-8.34-1.559c-2.188-1.228-3.251-3.237-3.251-6.143v-6.897c0-5.235 3.488-9.668 8.261-11.103 3.636.045 5.573 2.671 5.573 4.572a2.643 2.643 0 0 1-2.64 2.64 1.98 1.98 0 0 1-1.98-1.98c0-.8.651-1.452 1.452-1.452a.661.661 0 0 0 0-1.323A2.777 2.777 0 0 0 12.3 8.626a3.307 3.307 0 0 0 3.303 3.303 3.967 3.967 0 0 0 3.963-3.963c0-1.373-.689-2.849-1.845-3.951a6.7 6.7 0 0 0-1.561-1.107c6.319.085 11.432 5.251 11.432 11.589zm1.323-.323v-4.664c1.016.289 1.763 1.224 1.763 2.332s-.747 2.043-1.763 2.332"/><path d="M12.507 24.319a.66.66 0 0 0 0 .936.66.66 0 0 0 .936 0 3.62 3.62 0 0 1 5.116 0 .66.66 0 0 0 .936 0 .66.66 0 0 0 0-.936 4.947 4.947 0 0 0-6.987 0m-2.709-9.693a.661.661 0 0 0-1.323 0 1.26 1.26 0 0 1-1.259 1.259.661.661 0 0 0 0 1.323 2.587 2.587 0 0 0 2.581-2.581m13.725 0a.661.661 0 0 0-1.323 0 2.583 2.583 0 0 0 2.581 2.581.661.661 0 0 0 0-1.323 1.26 1.26 0 0 1-1.259-1.259"/></svg>
                 </div>
-                <a class="btn" href="#products" title="Go to products">Shop Now</a>
+                <a class="shopBtn btn" href="#products" title="Go to products">Shop Now</a>
             </div>
         </div>
 
@@ -283,16 +291,13 @@
     </section>
     <!-- End Contact Us -->
 
-
-
-
     <!-- Footers -->
     <footer class="relative py-6 text-white">
         <div class="cld container grid items-end pb-10 mx-auto h-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div class="flex flex-col justify-center items-center gap-4">
                     <a href="./index.html" title="The Best Online Shop for Kids | KidsShop" >
-                        <svg width="220" height="55" viewBox="0 0 220 55"><defs><style>.cls-2{font-size:60px;fill:#4d4462;font-family:Jokerman}</style></defs><circle cx="103.031" cy="26.891" r="26.219" style="fill:#739d34"/><image x="83" y="7" width="40" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAF8klEQVRYhbzOsREAEBAAsDils4cxNL+PWQ2jfQPoZYKUzPRJRWBioKNhY+E8D1wAAAD//2IAOZAO2Pn////r/////+c/dmCO1Q3//zMAAAAA//9ioUPoTWRgYMgjoIYTqygDAwMAAAD//6KlA0GWrmVgYPAkQu0frKIMDAwAAAAA//9ioq6bUMAcIh0HAr+wijIwMAAAAAD//6KVA2MZGBiiSFD/G6soAwMDAAAA//+iRS7mYWBguMnAwCBFgp5dDAwMIQwMDJ9RRBkYGAAAAAD//6JFCHqR6DgQcGNgYFjHwMDAhiLKwMAAAAAA//+ihQP9ydTnwsDAsJ2BgQGRcRkYGAAAAAD//6K2A0GFsQ4F+p0YGBhq4TwGBgYAAAAA//+itgMFGBgYRCk0Ix5eLjIwMAAAAAD//6K2A1mxpSMSAagKhJjBwMAAAAAA//+itgNBRcI/ItXhAucYGBg+gSUZGBgAAAAA//+itgM/EOnAnwwMDGdwyIHSIMQDDAwMAAAAAP//orSqY2dgYBCG5rzvDAwMMui5EI++Omh01kDT7SkGBoYWBgaG03BVDAwMAAAAAP//IsYwkBpQ2gI5AAYsGRgYIqG5ToKBgQEUE6DaAJR2+Ikwk5GBgUGbgYGhh4GBYQO02fUeQxUDAwMAAAD//8LlQFBREQZtu3ExMDCEMzAw3IXKdTEwMJQS4QhCwBCqAFQPY6+LGRgYAAAAAP//wtYG6/7///8vpGbb1P///zNB5ZbhaM+RA04RbIf+/88AAAAA//9CF1iJZtOj////c0DlKqjoOBB4/f//f1G8Dvz/nwEAAAD//0Lm1GMxpAEqJ/H///+/VHYgCFjgdeD//wwAAAAA//+CFTOSDAwMZVhSwB4oDWpp0KLeVsYry8DAAAAAAP//glnqC80MyADU9LkKFbClgeNAQBWvLAMDAwAAAP//AjkQ1DSywCJ3Bynr61LfbWCghleWgYEBAAAA//8CORDUBdTEIgcLPUUGBgYF6rsNDPCby8DAAAAAAP//AjnQiIGBQR2L3BUoDSoTcfa6KASgNCiI0wwGBgYAAAAA//8COdAOi6KvDAwMe6FsUIlPKyDGwMAgj9NwBgYGAAAAAP//AtUkoP6ALDQtPoTWiXMZGBjO08GBIADKKBewyjAwMAAAAAD//4KVN6CaAlTWoZdDIPFzJJRrn/7///+BxLKwDmc5+P8/AwAAAP//gtXFoCbSCyzuB7VOsKVPZPCFgYFhAbQ/cZuBgeEvAwODErSPkczAwCBCQD9u8xkYGAAAAAD//wK5UuH///+R////d8Dig0ACvr/9//9/IzwhoPr///+zBMy4g1TXwzDILZH///+XAgAAAP//AnG2ICmORlMICn5c4O7////5iajw2f7//38RjzmX/v//z46kHuQwCPj/fxEAAAD//wIJJEIVwUAukmKl////z8RhsDsJo2I2OOryWf///5dFUpePJHfh////oQAAAAD//4JJCP////8EkuT8////CyFpBFXqoJbOD6g8KOOQOmwHshAEfv7//38FWkNB8P///3OR7Ac1xYT+///PAAAAAP//QjYA1KxaiKToyf///+OwpKmm////h5PhwFioXnU08XioXTAAcgMnWO7/fwYAAAAA///CZlDW////PyJp2P3///8gMhxECAf8//9/F5I9oCIqE0Xf//8MAAAAAP//wmWIBjQakAEooVf9//9fiwJHgfSCGr7omQaUfDQx1P//zwAAAAD//yI0ugUaUwaNjvqgiZ9lYGC4yMDAcI2BgeEeAwPDK2jzDFQGggBoCATUYwNVZaAyUYuBgUGfgYHBGM2crdAR2N1YbWdgYAAAAAD//yJ2+A3UiwON+TkT00QiAECFOchBSxkYGI7hVcvAwAAAAAD//yJ1fBDUqDVlYGCwZmBgMGNgYDCAtsZxDXeAemvPoCP5oDr+MDT0QY0RwoCBgQEAAAD//6JkABPUTgRFHYgGRSUfNGpBABTVoOELUNSDksANKE0aYGBgAAAAAP//AwCVlNqB1YEhQAAAAABJRU5ErkJggg=="/><text id="Shop" class="cls-2" transform="matrix(.606 0 0 .611 130.909 39.417)">Shop</text><text id="Kids" class="cls-2" transform="matrix(.606 0 0 .611 -1.818 39.417)">Kids</text></svg>
+                        <img src="./src/images/kidsshop-logo-w.png" alt="he Best Online Shop for Kids | KidsShop" width="200" height="50">
                     </a>
                     <a class="flex items-center gap-x-2" href="tel:0892362185" title="Call us">
                         <svg width="18" height="18" viewBox="0 0 0.54 0.54" fill="#d5f075"><path d="M.437.292.422.289.393.28a.045.045 0 0 0-.056.022l-.005.01a.3.3 0 0 1-.06-.045.3.3 0 0 1-.045-.06L.236.201A.045.045 0 0 0 .258.145L.249.116.246.101A.07.07 0 0 0 .178.045H.11a.07.07 0 0 0-.068.077.43.43 0 0 0 .372.37h.009A.07.07 0 0 0 .468.475.07.07 0 0 0 .49.424V.356A.07.07 0 0 0 .434.291m.011.135a.02.02 0 0 1-.008.017.02.02 0 0 1-.018.006.38.38 0 0 1-.327-.332.03.03 0 0 1 .006-.018.02.02 0 0 1 .017-.008h.068a.02.02 0 0 1 .022.018l.003.018.01.035-.032.015a.022.022 0 0 0-.011.03.33.33 0 0 0 .158.158.02.02 0 0 0 .017 0A.02.02 0 0 0 .363.353L.377.321l.036.01.018.003a.02.02 0 0 1 .018.022ZM.427.225A.02.02 0 0 0 .449.203V.112a.022.022 0 0 0-.045 0v.09a.02.02 0 0 0 .022.022m-.09 0A.02.02 0 0 0 .358.202v-.09a.022.022 0 0 0-.045 0v.09a.02.02 0 0 0 .022.022"/></svg>

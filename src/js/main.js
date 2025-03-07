@@ -10,6 +10,7 @@ const searchBtn = document.querySelector('.search-btn');
 const searchWrap = document.querySelector('.search-wrap');
 const cartBtn = document.querySelector('.cart-btn');
 const cartWrap = document.querySelector('.cart-wrap');
+const cartShopBtn = document.querySelector('.shopBtn');
 
 function toggleClass(element, className, add) {
     element.classList[add ? 'add' : 'remove'](className);
@@ -123,6 +124,8 @@ navLinks.forEach((link) => {
         closeMobileMenu();
     });
 });
+
+cartShopBtn.addEventListener('click', closeCart);
 
 searchBtn.addEventListener('click', () => {
     if (searchWrap.classList.contains('top-[-100%]')) {

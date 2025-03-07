@@ -905,8 +905,8 @@
   .w-\[90\%\] {
     width: 90%;
   }
-  .w-\[160px\] {
-    width: 160px;
+  .w-\[200px\] {
+    width: 200px;
   }
   .w-\[250px\] {
     width: 250px;
@@ -2586,11 +2586,6 @@
       width: fit-content;
     }
   }
-  .sm\:w-full {
-    @media (width >= 40rem) {
-      width: 100%;
-    }
-  }
   .sm\:grid-cols-2 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2678,6 +2673,11 @@
       width: 40%;
     }
   }
+  .lg\:w-\[260px\] {
+    @media (width >= 64rem) {
+      width: 260px;
+    }
+  }
   .lg\:grid-cols-3 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2758,7 +2758,6 @@ html {
 @font-face {
   font-family: Montserrat;
   font-style: normal;
-  font-weight: 400;
   src: url("../fonts/Montserrat.woff2") format("woff2");
 }
 input:focus-visible {
@@ -2889,6 +2888,7 @@ input:focus-visible {
   background-image: url('../images/steps.png');
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 111;
 }
 .cart-wrap, #menu-holder {
   background: rgb(82,74,100);

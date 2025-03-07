@@ -6,7 +6,7 @@ html {
 }
 
 @font-face {  font-family: Sigmar;  font-style: normal;  font-weight: 400; src: url("../fonts/Sigmar-Regular.woff2") format("woff2");}
-@font-face {  font-family: Montserrat;  font-style: normal;  font-weight: 400; src: url("../fonts/Montserrat.woff2") format("woff2");}
+@font-face {  font-family: Montserrat;  font-style: normal; src: url("../fonts/Montserrat.woff2") format("woff2");}
 
 @theme {
     --font-primary: "Montserrat", serif;
@@ -101,6 +101,7 @@ input:focus-visible {
     background-image: url('../images/steps.png');
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 111;
 }
 
 .cart-wrap, #menu-holder {
