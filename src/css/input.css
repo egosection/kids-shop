@@ -6,6 +6,7 @@ html {
 }
 
 @font-face {  font-family: Sigmar;  font-style: normal;  font-weight: 400; src: url("../fonts/Sigmar-Regular.woff2") format("woff2");}
+@font-face {  font-family: Montserrat;  font-style: normal;  font-weight: 400; src: url("../fonts/Montserrat.woff2") format("woff2");}
 
 @theme {
     --font-primary: "Montserrat", serif;
@@ -20,6 +21,57 @@ input:focus-visible {
     outline: none;
 }
 
+.header-btm {
+    overflow:hidden;
+    position:relative;
+}
+
+.header-btm::before {
+    content:'';
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    z-index: 3;
+    pointer-events: none;
+    background-repeat: no-repeat; 
+    background-size: 100% 90px;
+    background-position: 50% 0%;    
+    background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M0 .5c3.07.55 9.27-.42 16.14 0 6.88.4 13.75.57 19.14-.11V0H0z" fill="%23fbd8c2"/><path d="M0 1c3.17.8 7.29-.38 10.04-.55 2.75-.17 9.25 1.47 12.67 1.3 3.43-.17 4.65-.84 7.05-.87 2.4-.02 5.52.88 5.52.88V0H0z" opacity=".5" fill="%23fbd8c2"/><path d="M0 1.85c2.56-.83 7.68-.3 11.79-.42 4.1-.12 6.86-.61 9.58-.28 2.73.33 5.61 1.17 8.61 1 3-.19 4.73-.82 5.3-.84V.1H0z" opacity=".5" fill="%23fbd8c2"/></svg>'); 
+}
+    
+@media (min-width:268px) {
+    .header-btm::before {
+        bottom: -0.1vw;
+        left: -0.1vw;
+        right: -0.1vw;
+        top: -0.1vw; 
+        background-size: 180% 37px;
+        background-position: 50% 0%;  
+        background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100.86 4.15"><path fill="%23ffffff" d="M0 0v3.5a9.07 9.07 0 0 0 9.37-1.67 9.07 9.07 0 0 0 12.1 0 9.07 9.07 0 0 0 12.11 0 9.07 9.07 0 0 0 12.06 0 9.07 9.07 0 0 0 12.11 0 9.07 9.07 0 0 0 12.08 0 9.07 9.07 0 0 0 12.09 0 9.07 9.07 0 0 0 12.08 0 9.07 9.07 0 0 0 6.86 2.28V.01z"/></svg>'); 
+    }  
+}
+     
+@media (min-width:1025px) {
+    .header-btm::before { 
+        bottom: -0.1vw;
+        left: -0.1vw;
+        right: -0.1vw;
+        top: -0.1vw; 
+        background-size: 100% 37px;
+        background-position: 50% 0%;  
+        background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100.86 4.15"><path fill="%23ffffff" d="M0 0v3.5a9.07 9.07 0 0 0 9.37-1.67 9.07 9.07 0 0 0 12.1 0 9.07 9.07 0 0 0 12.11 0 9.07 9.07 0 0 0 12.06 0 9.07 9.07 0 0 0 12.11 0 9.07 9.07 0 0 0 12.08 0 9.07 9.07 0 0 0 12.09 0 9.07 9.07 0 0 0 12.08 0 9.07 9.07 0 0 0 6.86 2.28V.01z"/></svg>'); 
+    }
+}
+
+@media (min-width:2100px) {
+    .header-btm::before {
+        display: none;
+        background-size: 100% calc(2vw + 137px);
+    }
+}
+     
 .user-icons button {
    @apply flex flex-col justify-center items-center cursor-pointer duration-150
 }
@@ -166,7 +218,7 @@ input:focus-visible {
 
 .shape-divider-bottom {
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -324,21 +376,56 @@ input[type=number]{
 }
 
 footer {
-    background-color: #F1E8D7;
-    height: 600px;
-    position: relative;
-    z-index: 44;
+    background-color: #524a64;
 }
 
-footer::after {
-    content: '';
-    bottom: 0;
+
+#contact-us{
+    overflow:hidden;
+    position:relative;
+    }
+    #contact-us::before{
+    content:'';
+    font-family:'shape divider from ShapeDividers.com';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/footer-mask-dark-png.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -2;
-}
-
+    bottom: -3px;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    z-index: 3;
+    pointer-events: none;
+    background-repeat: no-repeat; 
+    background-size: 100% 90px;
+    background-position: 50% 0%;    
+    background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M0 .5c3.07.55 9.27-.42 16.14 0 6.88.4 13.75.57 19.14-.11V0H0z" fill="%23fbd8c2"/><path d="M0 1c3.17.8 7.29-.38 10.04-.55 2.75-.17 9.25 1.47 12.67 1.3 3.43-.17 4.65-.84 7.05-.87 2.4-.02 5.52.88 5.52.88V0H0z" opacity=".5" fill="%23fbd8c2"/><path d="M0 1.85c2.56-.83 7.68-.3 11.79-.42 4.1-.12 6.86-.61 9.58-.28 2.73.33 5.61 1.17 8.61 1 3-.19 4.73-.82 5.3-.84V.1H0z" opacity=".5" fill="%23fbd8c2"/></svg>'); 
+    }
+    
+    @media (min-width:268px){
+    #contact-us::before{
+        bottom: -5px;
+        left: -0.1vw;
+        right: -0.1vw;
+        top: -0.1vw; 
+        background-size: 250% 65px;
+        background-position: 50% 100%;  
+        background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100.86 4.15"><path fill="%23524a64" d="M100.86 4.15V.65a9.07 9.07 0 0 0-9.37 1.67 9.07 9.07 0 0 0-12.1 0 9.07 9.07 0 0 0-12.11 0 9.07 9.07 0 0 0-12.06 0 9.07 9.07 0 0 0-12.11 0 9.07 9.07 0 0 0-12.09 0 9.07 9.07 0 0 0-12.08 0 9.07 9.07 0 0 0-12.08 0A9.07 9.07 0 0 0 0 .04v4.1z"/></svg>');  
+    }  
+    }
+     
+    @media (min-width:1025px){
+    #contact-us::before{ 
+    bottom: -0.3vw;
+    left: -0.1vw;
+    right: -0.1vw;
+    top: -0.1vw; 
+    background-size: 118% 65px;
+    background-position: 50% 100%;  
+    background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100.86 4.15"><path fill="%23524a64" d="M100.86 4.15V.65a9.07 9.07 0 0 0-9.37 1.67 9.07 9.07 0 0 0-12.1 0 9.07 9.07 0 0 0-12.11 0 9.07 9.07 0 0 0-12.06 0 9.07 9.07 0 0 0-12.11 0 9.07 9.07 0 0 0-12.09 0 9.07 9.07 0 0 0-12.08 0 9.07 9.07 0 0 0-12.08 0A9.07 9.07 0 0 0 0 .04v4.1z"/></svg>'); 
+    }
+    }
+    @media (min-width:2100px){
+    .shapedividers_com-710::before{
+    background-size: 118% calc(2vw + 65px);
+    }
+    }
+     
