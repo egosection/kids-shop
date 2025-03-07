@@ -24,6 +24,7 @@ input:focus-visible {
 .header-btm {
     overflow:hidden;
     position:relative;
+    top: -2px;
 }
 
 .header-btm::before {
