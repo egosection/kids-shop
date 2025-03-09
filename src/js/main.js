@@ -192,18 +192,21 @@ async function getProducts() {
                 }
                 
                 renderCartItems();
+                checkCartIcon()
 
-                //update icon cart quantity numbers
-                const cartNumber = document.querySelector('.c-number');
-                if (cartNumber) {
-                    cartNumber.textContent = cart.reduce((total, item) => total + item.quantity, 0);
-                    cartNumber.style.display = cart.length > 0 ? 'flex' : 'none';
-                }
             });
         });
 
     } catch (err) {
         console.error(err);
+    }
+}
+
+function checkCartIcon() {
+    const cartNumber = document.querySelector('.c-number');
+    if (cartNumber) {
+        cartNumber.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+        cartNumber.style.display = cart.length > 0 ? 'flex' : 'none';
     }
 }
 
@@ -256,6 +259,9 @@ function renderCartItems() {
                 <a class="shopBtn btn" href="#products" title="Go to products">Shop Now</a>
             </div>
         `;
+
+       checkCartIcon()
+
         return;
     }
 
