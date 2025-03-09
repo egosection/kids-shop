@@ -13,6 +13,7 @@ const cartWrap = document.querySelector('.cart-wrap');
 const cartShopBtn = document.querySelector('.shopBtn');
 const productsArr = [];
 const searchItems = document.querySelectorAll('.s-item');
+const cart = [];
 
 function toggleClass(element, className, add) {
     element.classList[add ? 'add' : 'remove'](className);
@@ -141,7 +142,7 @@ document.addEventListener('click', (event) => {
     if (!searchWrap.contains(event.target) && !searchBtn.contains(event.target)) {
         closeSearch();
     }
-    if (!cartWrap.contains(event.target) && !cartBtn.contains(event.target)) {
+    if (!cartWrap.contains(event.target) && !cartBtn.contains(event.target) && !event.target.closest('.add-cart') && !event.target.closest('.quantity button') && !event.target.closest('.q-p button')) {
         closeCart();
     }
 });
@@ -158,16 +159,50 @@ cartBtn.addEventListener('click', () => {
 window.addEventListener("scroll", hideTopBar);
 
 
-/////////////////////////////////////// PRODUCTS ////////////////////////////////////////////
+/////////////////////////////////////// PRODUCTS & ADD TO CART ////////////////////////////////////////////
 
 async function getProducts() {
     try {
         const response = await fetch('/products.json');
         const data = await response.json();
-        productsArr.push(data); 
+        productsArr.push(data);
         showProducts(data);
-        showSearchItems(productsArr);  
-    } catch(err) {
+        showSearchItems(productsArr);
+
+        document.querySelectorAll('.add-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productBox = e.target.closest('.product-box');
+                const productId = productBox.id;
+                const productTitle = productBox.querySelector('h3').textContent;
+                const productImage = productBox.querySelector('img').src;
+                const productPrice = productBox.querySelector('.reg-p') ? productBox.querySelector('.dis-p').textContent.trim() : productBox.querySelector('.price').textContent.trim();
+
+                const existingProduct = cart.find(item => item.id === productId);
+
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({
+                        id: productId,
+                        title: productTitle,
+                        image: productImage,
+                        price: productPrice,
+                        quantity: 1
+                    });
+                }
+                
+                renderCartItems();
+
+                //update icon cart quantity numbers
+                const cartNumber = document.querySelector('.c-number');
+                if (cartNumber) {
+                    cartNumber.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartNumber.style.display = cart.length > 0 ? 'flex' : 'none';
+                }
+            });
+        });
+
+    } catch (err) {
         console.error(err);
     }
 }
@@ -176,8 +211,8 @@ function showProducts(arr) {
     const productDiv = document.querySelector('#toys');
     const productHTML = arr.map(product => {
         const discountBadge = product.discountedPrice !== null ? `<span class="disc-badge">-${calculateDiscount(product.regularPrice, product.discountedPrice)}% Promo</span>` : '';
-        const priceHTML = product.discountedPrice !== null ? `<div class="price"><span>$${product.regularPrice}</span>$${product.discountedPrice}</div>` : `<div class="price">$${product.regularPrice}</div>`;
-        
+        const priceHTML = product.discountedPrice !== null ? `<div class="price"><span class="reg-p">$${product.regularPrice}</span><p class="dis-p">$${product.discountedPrice}</p></div>` : `<div class="price">$${product.regularPrice}</div>`;
+
         return `
             <div class="product-box" id="${product.id}">
                 <div class="product">
@@ -203,12 +238,78 @@ function showProducts(arr) {
     productDiv.innerHTML = productHTML;
 }
 
-function calculateDiscount(regPrice , disPrice) {
-    const discount = ((regPrice - disPrice) / regPrice) * 100;
-    return discount.toFixed(0);
+function calculateDiscount(regPrice, disPrice) {
+    return (((regPrice - disPrice) / regPrice) * 100).toFixed(0);
 }
 
-// Search products
+function renderCartItems() {
+    const cartItemsDiv = document.querySelector('.cart-wrap');
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = `
+            <div class="flex flex-col items-center gap-2">
+                <h3 class="text-xl uppercase font-bold text-white">My Cart</h3>
+                <svg viewBox="0 0 128 128" fill="#fff" width="128" height="128"><path d="M21.36 85.333V21.333h-10.667V10.667h16a5.333 5.333 0 0 1 5.333 5.333v64h66.336l10.667 -42.667H42.693V26.667h73.173a5.333 5.333 0 0 1 5.173 6.629l-13.333 53.333a5.333 5.333 0 0 1 -5.173 4.037H26.688a5.333 5.333 0 0 1 -5.333 -5.333m10.667 37.333a10.667 10.667 0 1 1 0 -21.333 10.667 10.667 0 0 1 0 21.333m64 0a10.667 10.667 0 1 1 0 -21.333 10.667 10.667 0 0 1 0 21.333"/></svg>
+                <div class="flex gap-2 items-center">
+                    <span class="text-white text-lg">Your cart is empty</span>
+                    <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff"><path d="M10.597 19.279a1.27 1.27 0 0 1-1.271 1.271 1.27 1.27 0 0 1-1.271-1.271 1.271 1.271 0 0 1 2.541 0m13.347 0a1.27 1.27 0 0 1-1.271 1.271 1.27 1.27 0 0 1-1.271-1.271 1.271 1.271 0 0 1 2.541 0"/><path d="M32 18.739a3.75 3.75 0 0 0-3.085-3.688v-.556C28.915 7.374 23.122 1.58 16 1.58S3.085 7.375 3.085 14.496v.556A3.75 3.75 0 0 0 0 18.739a3.75 3.75 0 0 0 3.131 3.696c.249 2.845 1.552 4.947 3.881 6.255 2.072 1.163 5.012 1.728 8.988 1.728s6.916-.565 8.988-1.728c2.329-1.308 3.632-3.409 3.881-6.255A3.75 3.75 0 0 0 32 18.739m-30.677 0c0-1.108.747-2.043 1.763-2.332v4.664a2.43 2.43 0 0 1-1.763-2.332m26.268 2.655c0 2.905-1.064 4.915-3.251 6.143-1.869 1.049-4.597 1.559-8.34 1.559s-6.472-.509-8.34-1.559c-2.188-1.228-3.251-3.237-3.251-6.143v-6.897c0-5.235 3.488-9.668 8.261-11.103 3.636.045 5.573 2.671 5.573 4.572a2.643 2.643 0 0 1-2.64 2.64 1.98 1.98 0 0 1-1.98-1.98c0-.8.651-1.452 1.452-1.452a.661.661 0 0 0 0-1.323A2.777 2.777 0 0 0 12.3 8.626a3.307 3.307 0 0 0 3.303 3.303 3.967 3.967 0 0 0 3.963-3.963c0-1.373-.689-2.849-1.845-3.951a6.7 6.7 0 0 0-1.561-1.107c6.319.085 11.432 5.251 11.432 11.589zm1.323-.323v-4.664c1.016.289 1.763 1.224 1.763 2.332s-.747 2.043-1.763 2.332"/><path d="M12.507 24.319a.66.66 0 0 0 0 .936.66.66 0 0 0 .936 0 3.62 3.62 0 0 1 5.116 0 .66.66 0 0 0 .936 0 .66.66 0 0 0 0-.936 4.947 4.947 0 0 0-6.987 0m-2.709-9.693a.661.661 0 0 0-1.323 0 1.26 1.26 0 0 1-1.259 1.259.661.661 0 0 0 0 1.323 2.587 2.587 0 0 0 2.581-2.581m13.725 0a.661.661 0 0 0-1.323 0 2.583 2.583 0 0 0 2.581 2.581.661.661 0 0 0 0-1.323 1.26 1.26 0 0 1-1.259-1.259"/></svg>
+                </div>
+                <a class="shopBtn btn" href="#products" title="Go to products">Shop Now</a>
+            </div>
+        `;
+        return;
+    }
+
+    const cartHTML = cart.map(item => `
+        <div class="cart-products grid grid-cols-6 grid-rows-2 w-full gap-2 p-2 bg-[#59516c]">
+            <img class="col-span-1 row-span-2 w-full rounded-lg" src="${item.image}" width="32" height="32" alt="${item.title}">
+            <h6 class="col-span-5 row-span-1 flex items-end text-white">${item.title}</h6>
+            <div class="q-p col-span-5 flex justify-between items-start">
+                <div class="quantity flex items-center gap-x-2">
+                    <button class="flex justify-center items-center w-[24px] h-[24px] bg-primary text-white rounded-full p-2 cursor-pointer" onclick="updateQuantity('${item.id}', -1)">-</button>
+                    <input class="bg-[#6a6080] text-white w-[40px] text-center rounded-lg" type="number" name="quantity" value="${item.quantity}" readonly>
+                    <button class="flex justify-center items-center w-[24px] h-[24px] bg-primary text-white rounded-full p-2 cursor-pointer" onclick="updateQuantity('${item.id}', 1)">+</button>
+                </div>
+                <div class="price mr-2 font-medium text-[#d0ea74]">${item.price}</div>
+                <button class="remove-cart-item" aria-label="Remove from cart" data-id="${item.id}">
+                <svg width="24" height="24" viewBox="0 0 0.72 0.72" xmlns="http://www.w3.org/2000/svg" fill="#ff3fa2"><path d="M.6.18H.48V.15A.09.09 0 0 0 .39.06H.33a.09.09 0 0 0-.09.09v.03H.12a.03.03 0 0 0 0 .06h.03v.33a.09.09 0 0 0 .09.09h.24A.09.09 0 0 0 .57.57V.24H.6a.03.03 0 0 0 0-.06M.3.15A.03.03 0 0 1 .33.12h.06a.03.03 0 0 1 .03.03v.03H.3Zm.21.42A.03.03 0 0 1 .48.6H.24A.03.03 0 0 1 .21.57V.24h.3Z"/></svg>
+                </button>
+            </div>
+        </div>
+    `).join('');
+
+    cartItemsDiv.innerHTML = `
+        <h3 class="text-xl uppercase font-bold text-white ml-2 mb-4">My Cart</h3>
+        ${cartHTML}
+    `;
+
+    document.querySelectorAll('.remove-cart-item').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = e.target.closest('.remove-cart-item').dataset.id;
+            removeCartItem(productId);
+        });
+    });
+}
+
+function updateQuantity(productId, change) {
+    const product = cart.find(item => item.id === productId);
+    if (product) {
+        product.quantity += change;
+        if (product.quantity <= 0) {
+            removeCartItem(productId);
+        } else {
+            renderCartItems();
+        }
+    }
+}
+
+function removeCartItem(productId) {
+    const itemIndex = cart.findIndex(item => item.id === productId);
+    if (itemIndex > -1) {
+        cart.splice(itemIndex, 1);
+        renderCartItems();
+    }
+}
+
 function showSearchItems(arr) {
     const searchResultsDiv = document.querySelector('.search-items');
     const searchForm = document.querySelector('.search-form');
@@ -244,10 +345,9 @@ function showSearchItems(arr) {
 
     document.querySelector('#submit').addEventListener('click', (e) => {
         e.preventDefault();
-        if(searchResultsDiv.innerHTML === '') {
-            searchResultsDiv.textContent = 'Nothing found :('    
+        if (searchResultsDiv.innerHTML === '') {
+            searchResultsDiv.textContent = 'Nothing found :(';
         }
-        
     });
 }
 
